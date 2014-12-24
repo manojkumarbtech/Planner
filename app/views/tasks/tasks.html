@@ -1,0 +1,68 @@
+﻿<div class="well tasksList-tasks">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-7">
+                    <h4 data-bind="text: title"></h4>
+                </div>
+                <div class="col-sm-1 pull-right">
+                    <button type="button" class="btn btn-default" data-bind="click: addTask">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+                <div class="col-sm-4 pull-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control" data-bind="value: titleFilter, valueUpdate: 'afterkeydown'">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tasks-panel" data-bind="if: todayTasks().length">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">Today <span class="badge" data-bind="text: todayTasks().length"></span></h4>
+            </div>
+            <ul class="list-group" data-bind="foreach: todayTasks">
+                <li class="list-group-item" data-bind="compose: 'tasks/tasksList.html'"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tasks-panel" data-bind="if: tomorrowTasks().length">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">Tomorrow <span class="badge" data-bind="text: tomorrowTasks().length"></span></h4>
+            </div>
+            <ul class="list-group" data-bind="foreach: tomorrowTasks">
+                <li class="list-group-item" data-bind="compose: 'tasks/tasksList.html'"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tasks-panel" data-bind="if: otherTasks().length">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">Other <span class="badge" data-bind="text: otherTasks().length"></span></h4>
+            </div>
+            <ul class="list-group" data-bind="foreach: otherTasks">
+                <li class="list-group-item" data-bind="compose: 'tasks/tasksList.html'"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tasks-panel" data-bind="if: expiredTasks().length">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">Expired <span class="badge" data-bind="text: expiredTasks().length"></span></h4>
+            </div>
+            <ul class="list-group" data-bind="foreach: expiredTasks">
+                <li class="list-group-item" data-bind="compose: 'tasks/tasksList.html'"></li>
+            </ul>
+        </div>
+    </div>
+</div>

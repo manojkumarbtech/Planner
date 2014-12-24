@@ -1,0 +1,27 @@
+﻿<div class="row">
+    <div class="col-sm-1 task-checkbox">
+                  
+            <input type="checkbox" data-bind="click: $parent.markAsCompleted">
+        
+    </div>
+    <div class="col-sm-9 task-description">
+        <h4>
+            <span data-bind="if: isStarred"><i class="fa fa-star fa-lg"></i></span>
+            <span data-bind="text: title"></span>
+            <span class="label label-default pull-right" data-bind="text: category"></span>   
+        </h4>
+        <p data-bind="text: description"></p>  
+        <span data-bind="text: dueDate"></span>      
+    </div>   
+    <div class="col-sm-2 task-buttons">
+        <button class="btn btn-default btn-sm btn-starred" data-bind="click: $parent.markAsStarred">
+            <i class="fa fa-star-o fa-lg"></i>
+        </button>    
+        <button type="button" class="btn btn-default btn-sm btn-edit" data-bind="click: $parent.editTask">
+            <i class="fa fa-pencil"></i>
+        </button> 
+        <button class="btn btn-default btn-sm btn-remove" data-bind="click: $parent.removeTask">
+            <i class="fa fa-trash-o fa-lg"></i>
+        </button>
+    </div>
+</div>

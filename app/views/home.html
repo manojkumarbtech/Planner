@@ -1,0 +1,59 @@
+﻿<div class="col-sm-3" data-bind="compose: 'viewmodels/sidebar'">
+</div>
+
+<div class="col-sm-9 well tasksList-home">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Tasks <mark><span data-bind="text: moment(currentDate()).format('DD/MM/YYYY')"></span></mark></h4>
+        </div>
+        <div class="panel-body">
+            <h4 data-bind="if: tasksForToday().length == 0">No tasks for this day</h4>
+            <table class="table tasksForToday" data-bind="if: tasksForToday().length != 0">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: tasksForToday">
+                    <tr>
+                        <td><span data-bind="if: isStarred"><i class="fa fa-star"></i> </span><span data-bind="text: title"></span></td>
+                        <td><span data-bind="text: description"></span></td>
+                        <td><span data-bind="text: category"></span></td>
+                        <td><span data-bind="text: dueDate"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <button type="button" class="btn btn-default btn-custom pull-right" data-bind="click: navigateToTasks">Details</button>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Events <mark><span data-bind="text: moment(currentDate()).format('DD/MM/YYYY')"></span></mark></h4>
+        </div>
+        <div class="panel-body">
+            <h4 data-bind="if: eventsForToday().length == 0">No events for this day</h4>
+            <table class="table eventsForToday" data-bind="if: eventsForToday().length != 0">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Schedule</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: eventsForToday">
+                    <tr>
+                        <td><span data-bind="text: title"></span></td>
+                        <td><span data-bind="text: startTime"></span>- <span data-bind="text: endTime"></span></td>
+                        <td><span data-bind="text: date"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <button type="button" class="btn btn-default btn-custom pull-right" data-bind="click: navigateToEvents">Details</button>
+        </div>
+    </div>
+</div>

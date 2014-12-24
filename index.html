@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Planner</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="apple-touch-startup-image" href="lib/durandal/img/ios-startup-image-landscape.png" media="(orientation:landscape)" />
+    <link rel="apple-touch-startup-image" href="lib/durandal/img/ios-startup-image-portrait.png" media="(orientation:portrait)" />
+    <link rel="apple-touch-icon" href="lib/durandal/img/icon.png" />
+
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.min.css"/>
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />    
+    <link rel="stylesheet" href="lib/durandal/css/durandal.css" />
+    <link rel="stylesheet" href="lib/jquery-ui/css/jquery-ui.css" >
+    <link rel='stylesheet' href='lib/fullcalendar/css/fullcalendar.min.css' />
+    <link rel="stylesheet" href="lib/kendo-ui/css/kendo.common.core.min.css" />
+    <link rel="stylesheet" href="lib/kendo-ui/css/kendo.bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.2.min.js"></script>
+    <script src="//www.parsecdn.com/js/parse-1.3.2.min.js"></script>
+
+    <script type="text/javascript">
+        Parse.initialize("8319tU98V9nQbqEDnwYBiAgF0Zw2xRZ2oZD0yAZD", "Jr9Tr6KskBcmg77qFMqCmgQWQhoN6k7yL4j5pAo7");
+    </script>
+
+</head>
+<body>
+    <div id="applicationHost" class="container-fluid">
+    <div class="splash">
+        <div class="message">Loading...</div>
+        <div class="loaderMainPage"></div>  
+    </div></div>
+
+    <script src="lib/require/require.js" data-main="app/main"></script>
+
+</body>
+</html>

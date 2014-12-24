@@ -1,0 +1,26 @@
+﻿<div class="col-sm-3 nav-sidebar-tasks">
+    <ul class="nav nav-pills nav-stacked">        
+        <!--ko foreach: router.navigationModel()-->
+        <li role="presentation" data-bind="css: { active: isActive }">
+            <a data-bind="attr: { href: hash }">
+                <i data-bind="attr: { class: 'fa fa-' + icon }"></i>
+                <span data-bind="text: title"></span>
+            </a>
+        </li>
+        <!--/ko-->
+        <li class="nav-header"><mark>Categories</mark></li>
+        <li class="categories" data-bind="foreach: categories">
+            <a data-bind="attr: { href: '#tasks/category/' + title.toLowerCase() }">
+                <i data-bind="attr: { class: 'fa fa-' + icon }"></i>
+                <span data-bind="text: title"></span>                
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="col-sm-9">
+    <!--ko router: {}-->
+    <!--/ko-->
+</div>
+
+

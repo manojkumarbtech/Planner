@@ -1,0 +1,111 @@
+﻿<div class="col-sm-3" data-bind="compose: 'viewmodels/sidebar'">
+</div>
+
+<div class="col-sm-9">
+    <div class="well">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h4>Contacts</h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" data-bind="value: nameFilter, valueUpdate: 'afterkeydown'">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-default" data-bind="click: addContact">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <table class="table contacts-list">
+                        <tbody>
+                            <!-- ko foreach: contacts -->
+                            <tr>
+                                <td class="col-sm-2">
+                                    <img class="contact-image contact-image-sm" data-bind="attr: { src: imageURL }" />
+                                </td>
+                                <td class="col-sm-4"><span data-bind="text: firstName"></span></td>
+                                <td class="col-sm-5"><span data-bind="text: lastName"></span></td>
+                                <td class="col-sm-1">
+                                    <button type="button" class="btn btn-default btn-sm" data-bind="click: $root.showContactDetails"><i class="fa fa-chevron-right"></i></button>
+                                </td>
+                            </tr>
+                            <!-- /ko -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-6" data-bind="with: currentContactDetails">
+                <div class="panel panel-default">
+                    <table class="table contact-details">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img class="contact-image contact-image-lg" data-bind="attr: { src: imageURL }" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h3><span data-bind="text: firstName"></span>
+                                        <span data-bind="text: lastName"></span>
+                                    </h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">Phones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="foreach: phones">
+                                            <tr>
+                                                <td class="col-sm-5"><span data-bind="text: type"></span></td>
+                                                <td class="col-sm-7"><span data-bind="text: number"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="3">Emails</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody data-bind="foreach: emails">
+                                            <tr>
+                                                <td class="col-sm-5"><span data-bind="text: type"></span></td>
+                                                <td class="col-sm-7"><span data-bind="text: address"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-sm btn-default pull-right" data-bind="click: $root.updateContact"><i class="fa fa-pencil"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,458 @@
+﻿.splash {
+    text-align: center;
+    margin: 15% 0 0 0;
+}
+
+.splash .message {
+    margin-bottom: 20px;
+    font-size: 2em;
+    line-height: 1.5em;
+    -webkit-text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.fa-spinner {
+    color: #fff;
+}
+
+/* Loader */
+.loaderMainPage {
+    margin: 0 auto;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+    border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+    border-left: 1.1em solid #ffffff;
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+}
+.loaderMainPage,
+.loaderMainPage:after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.page-host {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.navbar-nav li.loader {
+    margin: 12px 6px 0 6px;
+    visibility: hidden;    
+}
+
+.navbar-nav li.loader.active {
+    visibility: visible;
+    border: none !important;
+    margin-left: 20px;
+}
+
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+    .sidebar-nav .navbar .navbar-collapse {
+        padding: 0;
+        max-height: none;
+    }
+
+    .sidebar-nav .navbar ul {
+        float: none;
+    }
+
+    .sidebar-nav .navbar li {
+        float: none;
+        display: block;
+    }
+
+    .sidebar-nav .navbar li a {
+        padding-top: 12px;
+        padding-bottom: 12px;
+  }
+}
+
+/* custom */
+body {
+    background: url('bg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+textarea {
+    resize: none;
+}
+
+.modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.navbar, 
+.well {
+    background-color: rgba(255,255,255,0.4);
+    border: none;
+}
+
+.well,
+.panel, 
+.panel-default,
+.panel-heading {
+    border: none;
+     -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;    
+    border-radius: 0px;
+}
+
+.panel-default > .panel-heading {
+    background-color: rgba(227, 215, 189, 0.5);
+}
+
+/* header */
+.navbar-fixed-top span, 
+.navbar-fixed-top .fa-pagelines {   
+    font-size: 18px;     
+    color: #fff;
+}
+
+.navbar-fixed-top .active {       
+    border-bottom: 3px solid rgba(95, 53, 119, 0.4);
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background-color: rgba(255, 255, 255, 0.2);  
+}
+
+.btn-custom {
+    color: #597B87;
+    border-color: #597B87;
+}
+
+.navbar-btn {
+    color: #fff;
+    border-color: #fff;
+    background-color: #BDC9C8;
+}
+
+.navbar-btn:hover,
+.navbar-btn:focus,
+.btn-custom:hover,
+.btn-custom:focus {    
+    color: #fff;
+    background-color: rgba(89, 123, 135, 0.8);
+}
+
+/* calendar - sidebar */
+.sidebar h3 {
+    text-align: center;   
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+}
+
+.sidebar .k-calendar {
+    width: 100%;    
+}
+
+.sidebar .k-calendar th {
+    text-align: right;    
+}
+
+.sidebar .k-calendar, 
+.sidebar .k-content {
+    background-color: rgba(255,255,255,0);  
+    border: none;  
+    color: #fff;
+    text-align: right !important;
+}
+
+.sidebar .k-header {
+    background-color: rgba(95, 53, 119, 0.4);
+    border: none;
+    color: #fff;
+}
+
+.sidebar .k-nav-fast {    
+    color: #fff;
+}
+
+.sidebar .k-content thead th {
+    background-color: rgba(255,255,255,0.2);
+    font-weight: bold;
+}
+
+.sidebar .k-calendar td {
+    border: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+}
+
+.sidebar .k-today {
+    font-weight: bold;
+}
+
+.sidebar .k-today, 
+.sidebar .k-state-selected, 
+.sidebar .k-state-hover, 
+.sidebar .k-state-focused {
+    background-color: rgba(95, 53, 119, 0.3);
+    border: none !important;
+}
+
+.k-state-selected, 
+.k-state-selected:link, 
+.k-state-selected:visited {
+    border: none;
+    background-color: rgba(95, 53, 119, 0.3);
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* fullcalendar */
+.fc-unthemed .fc-today {
+    background-color: rgba(255,255,255,0.4);
+}
+
+.fc-day-number {
+    font-size: 20px;
+}
+
+.fc-button {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+/* tasks */
+.nav-pills > li {
+    margin-bottom: 5px;
+}
+
+.nav-pills > li > a,
+.categories a {
+    margin-left: 7px;   
+    border-bottom: 1px solid rgba(255,255,255,0.3);     
+    font-size: 17px;
+}
+
+.nav-sidebar-tasks span {      
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-sidebar-tasks i {    
+    color: #fff;
+    margin-right: 10px;
+}
+
+.nav-pills > li > a {    
+    -webkit-border-radius: 0px; 
+    -moz-border-radius: 0px; 
+    border-radius: 0px; 
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover, 
+.nav-pills > li.active > a:focus,
+.categories a:hover,
+.categories a:focus,
+.categories a:visited {
+    background-color: rgba(95, 53, 119, 0.4);
+}
+
+.nav-pills > li > a:hover, 
+.nav-pills > li > a:focus {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.nav-header {
+    text-align: right;
+}
+
+.nav-header mark,
+.tasksList-tasks .badge {
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(95, 53, 119, 0.4);
+    padding: 5px;
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    border-radius: 2px; 
+}
+
+.tasksList-tasks .label {
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(95, 53, 119, 0.4);   
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    border-radius: 2px; 
+}
+
+.tasksList-tasks .badge {
+    margin-left: 5px;
+}
+
+.task-description {
+    border-left: 1px solid rgba(221,221,221,1);  
+    border-right: 1px solid rgba(221,221,221,1);     
+}
+
+.fa-star {
+    color: #D09E3B;
+}
+
+.task-buttons {
+    padding-top: 7px;
+    vertical-align: middle;
+}
+
+.btn-starred,
+.btn-starred:hover,
+.btn-starred:focus  {
+    color: #BEB79D;
+    border-color: #BEB79D;
+}
+
+.btn-starred:hover,
+.btn-starred:focus {    
+    color: #fff;
+    background-color: rgba(204, 170, 102, 0.4);
+}
+
+.btn-edit,
+.btn-edit:hover,
+.btn-edit:focus  {
+    color: #597B87;
+    border-color: #597B87;
+}
+
+.btn-edit:hover,
+.btn-edit:focus {    
+    color: #fff;
+    background-color: rgba(89, 123, 135, 0.8);
+}
+
+.btn-remove,
+.btn-remove:hover,
+.btn-remove:focus  {
+    color: #BC2326;
+    border-color: #BC2326;
+}
+
+.btn-remove:hover,
+.btn-remove:focus { 
+    color: #fff;   
+    background-color: rgba(188, 35, 38, 0.8);
+}
+
+.task-checkbox {
+    text-align: center;  
+    padding-top: 10px;  
+}
+
+
+/* signin - signup */
+/* 404 */
+.not-found-page {
+    text-align: center;
+    color: #fff;
+    font-size: 48px;
+}
+
+.signin-form, 
+.signup-form, 
+.not-found-page {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.signin-form-redirect {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* home */
+mark {
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(95, 53, 119, 0.4);
+    padding: 5px;
+    -webkit-border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    border-radius: 2px; 
+}
+
+.tasksForToday, 
+.eventsForToday {
+    text-align: center;
+    table-layout: fixed;
+}
+
+.tasksForToday th, 
+.eventsForToday th {
+    text-align: center;
+}
+
+/* contacts */
+.contact-image {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;    
+    border-radius: 50%;
+}
+
+.contact-image-sm {
+    width: 100px;
+    height: 100px;
+}
+
+.contact-image-lg {
+    width: 150px;
+    height: 150px;    
+}
+
+.contact-details {
+    text-align: center;   
+}
+
+.contacts-list {
+    text-align: center;
+}
+
+.table-edit-contact {
+    border-bottom: none
+}
