@@ -59,6 +59,7 @@
                    .then(function (id) {
                        dataContext.getCollectionOfContacts().then(function (result) {
                            contactsCollection(result);
+                           showContactDetails(response);
                        });
                    });
             } else {
