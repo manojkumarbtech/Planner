@@ -32,11 +32,8 @@
                         <tbody>
                             <!-- ko foreach: contacts -->
                             <tr>
-                                <td class="col-sm-2">
-                                    <img class="contact-image contact-image-sm" data-bind="attr: { src: imageURL }" />
-                                </td>
-                                <td class="col-sm-4"><span data-bind="text: firstName"></span></td>
-                                <td class="col-sm-5"><span data-bind="text: lastName"></span></td>
+                                <td class="col-sm-5"><span data-bind="text: firstName"></span></td>
+                                <td class="col-sm-6"><span data-bind="text: lastName"></span></td>
                                 <td class="col-sm-1">
                                     <button type="button" class="btn btn-default btn-sm" data-bind="click: $root.showContactDetails"><i class="fa fa-chevron-right"></i></button>
                                 </td>
