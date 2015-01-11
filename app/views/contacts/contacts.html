@@ -28,9 +28,16 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="panel panel-default">
-                    <table class="table contacts-list">
+                    <table class="table contacts-list" data-bind="with: contacts">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-5">Name</th>
+                                <th class="col-sm-6">Surname</th>
+                                <th class="col-sm-1"></th>
+                            </tr>
+                        </thead>
                         <tbody>
-                            <!-- ko foreach: contacts -->
+                            <!-- ko foreach: $data -->
                             <tr>
                                 <td class="col-sm-5"><span data-bind="text: firstName"></span></td>
                                 <td class="col-sm-6"><span data-bind="text: lastName"></span></td>
@@ -46,12 +53,7 @@
             <div class="col-sm-6" data-bind="with: currentContactDetails">
                 <div class="panel panel-default">
                     <table class="table contact-details">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img class="contact-image contact-image-lg" data-bind="attr: { src: imageURL }" />
-                                </td>
-                            </tr>
+                        <tbody>                        
                             <tr>
                                 <td>
                                     <h3><span data-bind="text: firstName"></span>
@@ -61,15 +63,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <table class="table table-condensed">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="3">Phones</th>
-                                            </tr>
-                                        </thead>
+                                    <table class="table table-condensed table-bordered">                                
                                         <tbody data-bind="foreach: phones">
                                             <tr>
-                                                <td class="col-sm-5"><span data-bind="text: type"></span></td>
+                                                <td class="col-sm-1"><span><i class="fa fa-phone"></i></span></td>
+                                                <td class="col-sm-4"><span data-bind="text: type"></span></td>
                                                 <td class="col-sm-7"><span data-bind="text: number"></span></td>
                                             </tr>
                                         </tbody>
@@ -78,15 +76,11 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <table class="table table-condensed">
-                                        <thead>
-                                            <tr>
-                                                <th colspan="3">Emails</th>
-                                            </tr>
-                                        </thead>
+                                    <table class="table table-condensed table-bordered">                                        
                                         <tbody data-bind="foreach: emails">
                                             <tr>
-                                                <td class="col-sm-5"><span data-bind="text: type"></span></td>
+                                                <td class="col-sm-1"><span><i class="fa fa-envelope"></i></span></td>
+                                                <td class="col-sm-4"><span data-bind="text: type"></span></td>
                                                 <td class="col-sm-7"><span data-bind="text: address"></span></td>
                                             </tr>
                                         </tbody>

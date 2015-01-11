@@ -3,21 +3,13 @@
     var AddContact = function () {
         var self = this;
 
-        this.contactToAdd = {
-            firstName: ko.observable('Name'),
-            lastName: ko.observable('Surname'),
-            phones: ko.observableArray([{ type: 'Personal', number: '123-456-789' }]),
-            emails: ko.observableArray([{ type: 'Work', address: 'email@email.com' }]),
-            imageURL: ko.observable()
+        this.newContact = {
+            firstName: ko.observable(''),
+            lastName: ko.observable(''),
+            phones: ko.observableArray([{ type: '', number: '' }]),
+            emails: ko.observableArray([{ type: '', address: '' }])
         };
-
-        this.file = ko.observable();
-        this.loadContactImage = function () {
-            var parseFile = new Parse.File("contactImage.jpg", self.file());
-            parseFile.save().then(function (response) {
-                self.contactToAdd.imageURL(response.url().toString());
-            });  
-        };        
+                      
         this.phone = {
             type: ko.observable(),
             number: ko.observable()
@@ -27,27 +19,27 @@
             address: ko.observable()
         };
         this.addPhone = function () {
-            self.contactToAdd.phones.push({
+            self.newContact.phones.push({
                 type: '',
                 number: ''
             });
         };
         this.addEmail = function () {
-            self.contactToAdd.emails.push({
+            self.newContact.emails.push({
                 type: '',
                 address: ''
             });
         };
         this.removePhone = function (phone) {
-            self.contactToAdd.phones.remove(phone);
+            self.newContact.phones.remove(phone);
         };
         this.removeEmail = function (email) {
-            self.contactToAdd.emails.remove(email);
+            self.newContact.emails.remove(email);
         };
     };
 
     AddContact.prototype.closeDialog = function () {
-        dialog.close(this, ko.toJS(this.contactToAdd)); 
+        dialog.close(this, ko.toJS(this.newContact));
     };
 
     AddContact.prototype.exitDialog = function () {
@@ -59,5 +51,4 @@
     };
 
     return AddContact;
-
 });

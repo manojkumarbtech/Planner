@@ -233,7 +233,8 @@
         var dfd = Q.defer();
 
         var url = 'https://api.parse.com/1/classes/contacts/',
-            query = { "where": JSON.stringify(param) } || {};
+            query = { "where": JSON.stringify(param) } || {}
+        ;
 
         if (userContext.session) {
             headers["X-Parse-Session-Token"] = userContext.session.sessionToken;

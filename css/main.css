@@ -449,10 +449,7 @@ mark {
     text-align: center;   
 }
 
-.contacts-list {
+.contacts-list,
+.contacts-list th {
     text-align: center;
-}
-
-.table-edit-contact {
-    border-bottom: none
 }

@@ -3,22 +3,14 @@
     var EditContact = function (contact) {
         var self = this;
 
-        this.contactToAdd = {
+        this.updatedContact = {
             firstName: ko.observable(contact.firstName),
             lastName: ko.observable(contact.lastName),
             phones: ko.observableArray(contact.phones),
             emails: ko.observableArray(contact.emails),
-            imageURL: ko.observable(contact.imageUrl),
             objectId: contact.objectId
         };
-
-        this.file = ko.observable();
-        this.loadContactImage = function () {
-            var parseFile = new Parse.File("contactImage.jpg", self.file());
-            parseFile.save().then(function (response) {
-                self.contactToAdd.imageURL(response.url().toString());
-            });
-        };
+        
         this.phone = {
             type: ko.observable(),
             number: ko.observable()
@@ -28,27 +20,27 @@
             address: ko.observable()
         };
         this.addPhone = function () {
-            self.contactToAdd.phones.push({
+            self.updatedContact.phones.push({
                 type: '',
                 number: ''
             });
         };
         this.addEmail = function () {
-            self.contactToAdd.emails.push({
+            self.updatedContact.emails.push({
                 type: '',
                 address: ''
             });
         };
         this.removePhone = function (phone) {
-            self.contactToAdd.phones.remove(phone);
+            self.updatedContact.phones.remove(phone);
         };
         this.removeEmail = function (email) {
-            self.contactToAdd.emails.remove(email);
+            self.updatedContact.emails.remove(email);
         };
     };
 
     EditContact.prototype.closeDialog = function () {
-        dialog.close(this, ko.toJS(this.contactToAdd));
+        dialog.close(this, ko.toJS(this.updatedContact));
     };
 
     EditContact.prototype.exitDialog = function () {
@@ -60,5 +52,4 @@
     };
 
     return EditContact;
-
 });
