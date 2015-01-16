@@ -20,12 +20,11 @@
                         day: 'Day'
                     },
                     dayNamesShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-
+                    height: 'auto',
+                    
                     selectable: true,
                     selectHelper: true,
                     editable: true,
-
-                    weekMode: 'variable',
                     firstDay: 1,
                     
                     allDayDefault: false,
