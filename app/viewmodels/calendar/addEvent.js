@@ -2,39 +2,35 @@
     function (dialog, moment, ko, $) {
 
     var AddEvent = function (start) {
-        var self = this;
-
+        var self = this,
+            start = moment(start)
+                    .set('second', 00)
+                    .set('millisecond', 00)
+        ;
         this.eventToAdd = {
-            title: ko.observable('Event'),
-            startTimeUnformatted: ko.observable(),
-            endTimeUnformatted: ko.observable(),
-            color: ko.observable('#7DCDC1')
+            title: ko.observable('Event'),            
+            color: ko.observable('#7DCDC1'),            
+            startGMT: ko.observable(),
+            endGMT: ko.observable()
         };
         this.eventToAdd.start = ko.computed(function () {
             return moment(start)
-                .hours(moment(self.eventToAdd.startTimeUnformatted()).hours())
-                .minutes(moment(self.eventToAdd.startTimeUnformatted()).minutes())
-                .format();
+                .hours(moment(self.eventToAdd.startGMT()).hours())
+                .minutes(moment(self.eventToAdd.startGMT()).minutes());
         });
         this.eventToAdd.end = ko.computed(function () {
             return moment(start)
-                .hours(moment(self.eventToAdd.endTimeUnformatted()).hours())
-                .minutes(moment(self.eventToAdd.endTimeUnformatted()).minutes())
-                .format();
+                .hours(moment(self.eventToAdd.endGMT()).hours())
+                .minutes(moment(self.eventToAdd.endGMT()).minutes());
         });
         this.eventToAdd.date = ko.computed(function () {
-            return moment(start).format('DD/MM/YYYY');
-        });
-        this.eventToAdd.startTime = ko.computed(function () {
-            return moment(self.eventToAdd.startTimeUnformatted()).format('HH:mm');
-        });
-        this.eventToAdd.endTime = ko.computed(function () {
-            return moment(self.eventToAdd.endTimeUnformatted()).format('HH:mm');
+            return moment(start)
+                .format('DD/MM/YYYY');
         });
     };
    
     AddEvent.prototype.closeDialog = function () {
-        dialog.close(this, ko.toJS(this.eventToAdd)); 
+        dialog.close(this, ko.toJS(this.eventToAdd));        
     };
 
     AddEvent.prototype.exitDialog = function () {

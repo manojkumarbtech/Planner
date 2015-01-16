@@ -13,7 +13,11 @@
                     tasksForToday(data);
                 });
             dataContext.getCollectionOfEvents({ date: moment(date).format('DD/MM/YYYY') })
-               .then(function (data) {
+                .then(function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].startHour = moment(data[i].start).format('HH:mm');
+                        data[i].endHour = moment(data[i].end).format('HH:mm');
+                    }
                    eventsForToday(data);
                });
         });
@@ -46,8 +50,12 @@
             });
 
             dataContext.getCollectionOfEvents({ date: moment().format('DD/MM/YYYY') })
-           .then(function (data) {               
-               eventsForToday(data);
+            .then(function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    data[i].startHour = moment(data[i].start).format('HH:mm');
+                    data[i].endHour = moment(data[i].end).format('HH:mm');
+                }
+                eventsForToday(data);              
            });
         }
         

@@ -3,26 +3,24 @@
 
     var UpdateEvent = function (event) {
         var self = this;
-
+        
         this.eventToUpdate = {
-            title: ko.observable(event.title),
-            startTimeUnformatted: ko.observable(new Date(event.startTimeUnformatted)),
-            endTimeUnformatted: ko.observable(new Date(event.endTimeUnformatted)),
+            title: ko.observable(event.title),            
             color: ko.observable(event.color),
-
-            objectId: event.objectId // from Parse.com
+            startGMT: ko.observable(new Date(event.startGMT)),
+            endGMT: ko.observable(new Date(event.endGMT)),
+            // Retrieved from Parse
+            objectId: event.objectId 
         };
         this.eventToUpdate.start = ko.computed(function () {
             return moment(event.start)
-                .hours(moment(self.eventToUpdate.startTimeUnformatted()).hours())
-                .minutes(moment(self.eventToUpdate.startTimeUnformatted()).minutes())
-                .format();
+                .hours(moment(self.eventToUpdate.startGMT()).hours())
+                .minutes(moment(self.eventToUpdate.startGMT()).minutes());
         });
         this.eventToUpdate.end = ko.computed(function () {
-            return moment(event.start)
-                .hours(moment(self.eventToUpdate.endTimeUnformatted()).hours())
-                .minutes(moment(self.eventToUpdate.endTimeUnformatted()).minutes())
-                .format();
+            return moment(event.end)
+                .hours(moment(self.eventToUpdate.endGMT()).hours())
+                .minutes(moment(self.eventToUpdate.endGMT()).minutes());
         });
     };
 

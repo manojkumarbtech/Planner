@@ -124,9 +124,9 @@
 
         var url = 'https://api.parse.com/1/classes/events/';
 
-        if (userContext.session) {
+        if (userContext.session().userId) {
             var acl = {};
-            acl[userContext.session.objectId] = {
+            acl[userContext.session().userId] = {
                 'read': true,
                 'write': true
             };
@@ -152,8 +152,8 @@
             query = { "where": JSON.stringify(param) } || {}
         ;
 
-        if (userContext.session) {
-            headers["X-Parse-Session-Token"] = userContext.session.sessionToken;
+            if (userContext.session().sessionToken) {
+            headers["X-Parse-Session-Token"] = userContext.session().sessionToken;
         }
 
         http.get(url, query, headers)
@@ -209,9 +209,9 @@
 
         var url = 'https://api.parse.com/1/classes/contacts/';
 
-        if (userContext.session) {
+        if (userContext.session().userId) {
             var acl = {};
-            acl[userContext.session.objectId] = {
+            acl[userContext.session().userId] = {
                 'read': true,
                 'write': true
             };
@@ -236,8 +236,8 @@
             query = { "where": JSON.stringify(param) } || {}
         ;
 
-        if (userContext.session) {
-            headers["X-Parse-Session-Token"] = userContext.session.sessionToken;
+        if (userContext.session().sessionToken) {
+            headers["X-Parse-Session-Token"] = userContext.session().sessionToken;
         }
 
         http.get(url, query, headers)

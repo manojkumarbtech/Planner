@@ -26,7 +26,7 @@
                     editable: true,
 
                     weekMode: 'variable',
-                    firstDay: 1, 
+                    firstDay: 1,
                     
                     allDayDefault: false,
                     displayEventEnd: {
@@ -83,6 +83,8 @@
                         var eventData = {};
                         eventData.start = event.start.format();
                         eventData.end = event.end.format();
+                        eventData.date = moment(event.start).format('DD/MM/YYYY');
+
                         eventData.objectId = event.objectId;
 
                         dataContext.updateEvent(eventData);

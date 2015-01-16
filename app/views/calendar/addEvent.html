@@ -21,13 +21,13 @@
                 <div class="form-group">
                     <label for="eventStartTime" class="col-sm-2 col-sm-offset-1 control-label">Start</label>
                     <div class="col-sm-7">
-                        <input id="eventStartTime" class="form-control" data-bind="kendoTimePicker: { value: eventToAdd.startTimeUnformatted }, attr: { readonly: true }" />
+                        <input id="eventStartTime" class="form-control" data-bind="kendoTimePicker: { value: eventToAdd.startGMT }, attr: { readonly: true }" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="eventEndDate" class="col-sm-2 col-sm-offset-1 control-label">End</label>
                     <div class="col-sm-7">
-                        <input id="eventEndTime" class="form-control" data-bind="kendoTimePicker: { value: eventToAdd.endTimeUnformatted }, attr: { readonly: true }" /> 
+                        <input id="eventEndTime" class="form-control" data-bind="kendoTimePicker: { value: eventToAdd.endGMT }, attr: { readonly: true }" /> 
                     </div>
                 </div>
             </form>
