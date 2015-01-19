@@ -20,23 +20,26 @@
                         day: 'Day'
                     },
                     dayNamesShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                    height: 'auto',
-                    
+
+                    fixedWeekCount: false,
+                    aspectRatio: 2,
+
                     selectable: true,
                     selectHelper: true,
                     editable: true,
                     firstDay: 1,
-                    
+                                        
                     allDayDefault: false,
                     displayEventEnd: {
                         month: true,
                         basicWeek: true
                     },
+
                     allDaySlot: false,
                     timeFormat: 'H:mm',
                     axisFormat: 'H:mm',
                     firstHour: 6,
-                    eventLimit: 4,
+                    eventLimit: true,
 
                     select: function (start) {
                         AddEvent.show(start).then(function (eventData) {
