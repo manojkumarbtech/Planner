@@ -27,14 +27,13 @@
         };
     }
 
-    function signup(fullname, email, password) {
+    function signup(username, password) {
         var dfd = Q.defer();
 
         var url = 'https://api.parse.com/1/users/';
 
         var user = {
-            fullname: fullname,
-            username: email,
+            username: username,
             password: password
         };
 
@@ -49,13 +48,13 @@
         return dfd.promise;
     }
 
-    function signin(email, password) {
+    function signin(username, password) {
         var dfd = Q.defer();
 
         var url = 'https://api.parse.com/1/login/';
 
         var user = {
-            username: email,
+            username: username,
             password: password
         };
         

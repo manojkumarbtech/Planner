@@ -1,12 +1,11 @@
 ﻿define(['plugins/router', 'knockout', 'userContext'], function (router, ko, userContext) {
 
     var viewModel = {
-        email: ko.observable(),
+        username: ko.observable(),
         password: ko.observable(),
-        submit: submit,
-        signinRedirect: signinRedirect,
-        signupRedirect: signupRedirect,
 
+        submit: submit,        
+        signupRedirect: signupRedirect,
         canActivate: canActivate
     };
 
@@ -17,14 +16,10 @@
     }
 
     function submit() {
-        userContext.signin(viewModel.email(), viewModel.password())
+        userContext.signin(viewModel.username(), viewModel.password())
             .then(function () {
                 router.navigate('');
             });
-    }
-
-    function signinRedirect() {
-        return router.navigate('signin');
     }
 
     function signupRedirect() {

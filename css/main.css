@@ -406,6 +406,11 @@ textarea {
     text-align: center;
 }
 
+.signin-form-header, 
+.signup-form-header {
+    text-align: center;
+}
+
 /* home */
 mark {
     font-weight: bold;
