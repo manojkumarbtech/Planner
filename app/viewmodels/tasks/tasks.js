@@ -5,7 +5,7 @@
             tasksFilter = ko.observableArray(),
             title = ko.observableArray(),
             tasksCollection = ko.observableArray(),
-            titleFilter = ko.observable(''),
+            titleFilter = ko.observable(''),            
 
             tasks = ko.computed(function () {
                 var filter = titleFilter().toLowerCase();
@@ -95,6 +95,7 @@
                 .then(function (dialogResult) {
                     if (dialogResult == 'Yes') {
                         dataContext.removeTask(task).then(function () {
+                            isLoading(true);
                             tasksCollection.remove(task);
                         });
                     } else {

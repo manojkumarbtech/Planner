@@ -5,12 +5,15 @@
             currentDate = sidebarViewModel.currentDateUnformatted,
             currentDateFormatted = ko.observable(moment(currentDate()).format('DD/MM/YYYY')),
             tasksForToday = ko.observableArray(),
-            eventsForToday = ko.observableArray()
+            eventsForToday = ko.observableArray(),
+            isLoading = ko.observable(false)
         ;
-        currentDate.subscribe(function (date) {            
+        currentDate.subscribe(function (date) {
+            isLoading(true);
             dataContext.getCollectionOfTasks({ dueDate: moment(date).format('DD/MM/YYYY') })
-                .then(function (data) {
+                .then(function (data) {                    
                     tasksForToday(data);
+                    isLoading(false);
                 });
             dataContext.getCollectionOfEvents({ date: moment(date).format('DD/MM/YYYY') })
                 .then(function (data) {
@@ -18,7 +21,8 @@
                         data[i].startHour = moment(data[i].start).format('HH:mm');
                         data[i].endHour = moment(data[i].end).format('HH:mm');
                     }
-                   eventsForToday(data);
+                    eventsForToday(data);
+                    isLoading(false);
                });
         });
 
@@ -27,6 +31,7 @@
             currentDateFormatted: currentDateFormatted,
             tasksForToday: tasksForToday,
             eventsForToday: eventsForToday,
+            isLoading: isLoading,
 
             navigateToTasks: navigateToTasks,
             navigateToEvents: navigateToEvents,
