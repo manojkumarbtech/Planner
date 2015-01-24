@@ -1,4 +1,4 @@
-﻿<nav class="navbar navbar-default navbar-fixed-top col-sm-12" role="navigation">
+﻿<nav class="navbar navbar-default navbar-fixed-top col-sm-12" role="navigation" data-bind="visible: userContext.isUserLoggedIn">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
             <span class="sr-only">Toggle Navigation</span>
@@ -7,8 +7,7 @@
             <span class="icon-bar"></span>
         </button>
         <div class="navbar-brand">
-            <i class="fa fa-pagelines"></i>
-            
+            <i class="fa fa-pagelines"></i>            
         </div>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse">

@@ -31,9 +31,9 @@
 
         var url = 'https://api.parse.com/1/classes/tasks/';
 
-        if (userContext.session().userId) {
+        if (userContext.userId()) {
             var acl = {};
-            acl[userContext.session().userId] = {
+            acl[userContext.userId()] = {
                 'read': true,
                 'write': true
             };
@@ -59,15 +59,14 @@
     }
 
     function getCollectionOfTasks(param) {
-        var dfd = Q.defer();
-
         var
+            dfd = Q.defer(),
             url = 'https://api.parse.com/1/classes/tasks/',
             query = { "where": JSON.stringify(param) } || {}
         ;
 
-        if (userContext.session().sessionToken) {
-            headers["X-Parse-Session-Token"] = userContext.session().sessionToken;
+        if (userContext.sessionToken()) {
+            headers["X-Parse-Session-Token"] = userContext.sessionToken();
         }
 
         http.get(url, query, headers)
@@ -120,13 +119,14 @@
 
     ///////// Events ////////////
     function addEvent(data) {
-        var dfd = Q.defer();
+        var 
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/classes/events/'
+        ;
 
-        var url = 'https://api.parse.com/1/classes/events/';
-
-        if (userContext.session().userId) {
+        if (userContext.userId()) {
             var acl = {};
-            acl[userContext.session().userId] = {
+            acl[userContext.userId()] = {
                 'read': true,
                 'write': true
             };
@@ -145,15 +145,14 @@
     }
 
     function getCollectionOfEvents(param) {
-        var dfd = Q.defer();
-
-        var
+       var
+            dfd = Q.defer(),
             url = 'https://api.parse.com/1/classes/events/'
             query = { "where": JSON.stringify(param) } || {}
         ;
 
-            if (userContext.session().sessionToken) {
-            headers["X-Parse-Session-Token"] = userContext.session().sessionToken;
+        if (userContext.sessionToken()) {
+            headers["X-Parse-Session-Token"] = userContext.sessionToken();
         }
 
         http.get(url, query, headers)
@@ -209,9 +208,9 @@
 
         var url = 'https://api.parse.com/1/classes/contacts/';
 
-        if (userContext.session().userId) {
+        if (userContext.userId()) {
             var acl = {};
-            acl[userContext.session().userId] = {
+            acl[userContext.userId()] = {
                 'read': true,
                 'write': true
             };
@@ -230,14 +229,14 @@
     }
 
     function getCollectionOfContacts(param) {
-        var dfd = Q.defer();
-
-        var url = 'https://api.parse.com/1/classes/contacts/',
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/classes/contacts/',
             query = { "where": JSON.stringify(param) } || {}
         ;
 
-        if (userContext.session().sessionToken) {
-            headers["X-Parse-Session-Token"] = userContext.session().sessionToken;
+        if (userContext.sessionToken) {
+            headers["X-Parse-Session-Token"] = userContext.sessionToken();
         }
 
         http.get(url, query, headers)

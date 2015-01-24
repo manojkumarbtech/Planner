@@ -12,7 +12,7 @@
     return viewModel;
 
     function canActivate() {
-        return (userContext.session().sessionToken && userContext.session().userId) ? { redirect: '' } : true;
+        return (userContext.checkIfSessionIsActive()) ? { redirect: '' } : true;
     }
 
     function submit() {

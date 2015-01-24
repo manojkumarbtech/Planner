@@ -3,7 +3,7 @@
 
         return {
             canActivate: function() {
-                return (userContext.session().sessionToken && userContext.session().userId) ? true : { redirect: 'signin' };
+                return (userContext.checkIfSessionIsActive()) ? true : { redirect: 'signin' };
             },
 
             attached: function () {

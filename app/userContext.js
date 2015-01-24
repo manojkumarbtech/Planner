@@ -1,4 +1,4 @@
-﻿define(['Q', 'plugins/http'], function (Q, http) {
+﻿define(['Q', 'plugins/http', 'knockout'], function (Q, http, ko) {
 
     var
         APPLICATION_ID = "8319tU98V9nQbqEDnwYBiAgF0Zw2xRZ2oZD0yAZD",
@@ -8,34 +8,39 @@
             "X-Parse-REST-API-Key": REST_API_KEY
         },  
         userContext = {
+            sessionToken: function () {
+                return localStorage.getItem('LOCALSTORAGE_SESSION_TOKEN');
+            },
+            userId: function () {
+                return localStorage.getItem('LOCALSTORAGE_USER_ID');
+            },
+            isUserLoggedIn: ko.observable(false),
+            checkIfSessionIsActive: checkIfSessionIsActive,
+
             signin: signin,
             signup: signup,
-            logout: logout,
-
-            sessionTokenKey: 'LOCALSTORAGE_SESSION_KEY',
-            userIdKey: 'LOCALSTORAGE_USER_KEY',
-            session: session
-        }
+            logout: logout            
+        }       
     ;
 
     return userContext;
 
-    function session() {
-        return {
-            sessionToken: localStorage.getItem(userContext.sessionTokenKey),
-            userId: localStorage.getItem(userContext.userIdKey)
-        };
-    }
+    function checkIfSessionIsActive() {
+        if (localStorage.getItem('LOCALSTORAGE_SESSION_TOKEN') && localStorage.getItem('LOCALSTORAGE_USER_ID')) {
+            userContext.isUserLoggedIn(true);
+        }
+        return localStorage.getItem('LOCALSTORAGE_SESSION_TOKEN') && localStorage.getItem('LOCALSTORAGE_USER_ID');
+    }   
 
     function signup(username, password) {
-        var dfd = Q.defer();
-
-        var url = 'https://api.parse.com/1/users/';
-
-        var user = {
-            username: username,
-            password: password
-        };
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/users/',
+            user = {
+                username: username,
+                password: password
+            }
+        ;
 
         http.post(url, user, headers)
             .done(function () {
@@ -49,20 +54,21 @@
     }
 
     function signin(username, password) {
-        var dfd = Q.defer();
-
-        var url = 'https://api.parse.com/1/login/';
-
-        var user = {
-            username: username,
-            password: password
-        };
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/login/',
+            user = {
+                username: username,
+                password: password
+            }
+        ;
         
         http.get(url, user, headers)
             .done(function (response) {
                 if (response) {
-                    localStorage.setItem(userContext.sessionTokenKey, response.sessionToken);
-                    localStorage.setItem(userContext.userIdKey, response.objectId);
+                    localStorage.setItem('LOCALSTORAGE_SESSION_TOKEN', response.sessionToken);
+                    localStorage.setItem('LOCALSTORAGE_USER_ID', response.objectId);
+                    userContext.isUserLoggedIn(true);
                     dfd.resolve();
                 } else {
                     dfd.reject();
@@ -76,8 +82,8 @@
     }
 
     function logout() {
-        localStorage.removeItem(userContext.sessionTokenKey);
-        localStorage.removeItem(userContext.userIdKey);
+        localStorage.removeItem('LOCALSTORAGE_SESSION_TOKEN');
+        localStorage.removeItem('LOCALSTORAGE_USER_ID');
+        userContext.isUserLoggedIn(false);
     }
-
 });

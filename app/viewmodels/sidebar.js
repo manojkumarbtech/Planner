@@ -10,5 +10,4 @@
         currentDateUnformatted: currentDateUnformatted,
         currentDate: currentDate
     }
-
 });

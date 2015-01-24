@@ -87,6 +87,6 @@
     }
 
     function canActivate() {
-        return (userContext.session().sessionToken && userContext.session().userId) ? true : { redirect: 'signin' };
+        return (userContext.checkIfSessionIsActive()) ? true : { redirect: 'signin' };
     }
 });

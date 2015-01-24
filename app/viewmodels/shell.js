@@ -1,6 +1,8 @@
 ﻿define(['plugins/router', 'durandal/app', 'userContext', 'bootstrap'], function (router, app, userContext) {
+
     return {
         router: router,
+        userContext: userContext,
         activate: function () {
             router.map([                         
                 { route: '', title:'Home', moduleId: 'viewmodels/home', nav: true },
