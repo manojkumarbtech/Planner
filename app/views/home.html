@@ -1,6 +1,6 @@
 ﻿<div class="col-sm-3" data-bind="compose: 'viewmodels/sidebar'"></div>
 
-<div class="col-sm-9 tasksList-home">  
+<div class="col-sm-9">  
     <div class="well">  
         <div class="panel panel-default">        
             <div class="panel-heading">
@@ -9,21 +9,21 @@
             <div class="panel-body">
                 <div class="loader" data-bind="visible: isLoading"><i class="fa fa-spinner fa-spin fa-2x"></i></div>
                 <div class="is-loading" data-bind="visible: !isLoading()">                
-                    <div data-bind="if: tasksForToday().length == 0">
+                    <div class="no-tasks" data-bind="if: tasksForToday().length == 0">
                         <h4><mark><span data-bind="text: moment(currentDate()).format('DD/MM/YYYY')"></span></mark></h4>
-                        <p>No tasks</p>                    
+                        <p>No tasks for this day</p>                    
                     </div>                
                     <table class="table tasksForToday" data-bind="if: tasksForToday().length != 0">
                         <caption>
                             <h4><mark><span data-bind="text: moment(currentDate()).format('DD/MM/YYYY')"></span></mark></h4>
-                        </caption>
+                        </caption>                        
                         <thead>
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
                                 <th>Category</th>
                                 <th>Due Date</th>
-                            </tr>
+                            </tr>                            
                         </thead>
                         <tbody data-bind="foreach: tasksForToday">
                             <tr>
@@ -33,12 +33,9 @@
                                 <td><span data-bind="text: dueDate"></span></td>
                             </tr>
                         </tbody>
-                    </table>                
-                </div>
-                <hr />
-                <button type="button" class="btn btn-default btn-custom pull-right" data-bind="click: navigateToTasks">
-                    <i class="fa fa-plus"></i> Add new task
-                </button>
+                    </table>                                 
+                </div>                
+                <button type="button" class="btn btn-default btn-custom pull-right" data-bind="click: navigateToTasks">All tasks</button>                
             </div>
         </div>
         <div class="panel panel-default">
@@ -48,9 +45,9 @@
             <div class="panel-body">
                 <div class="loader" data-bind="visible: isLoading"><i class="fa fa-spinner fa-spin fa-2x"></i></div>
                     <div class="is-loading" data-bind="visible: !isLoading()">
-                    <div data-bind="if: eventsForToday().length == 0">
+                    <div class="no-events" data-bind="if: eventsForToday().length == 0">
                         <h4><mark><span data-bind="text: moment(currentDate()).format('DD/MM/YYYY')"></span></mark></h4>
-                        <p>No events</p>                    
+                        <p>No events for this day</p>                    
                     </div>      
                     <table class="table eventsForToday" data-bind="if: eventsForToday().length != 0">
                         <caption>
@@ -71,11 +68,8 @@
                             </tr>
                         </tbody>
                     </table>                
-                </div>
-                <hr />
-                <button type="button" class="btn btn-default btn-custom pull-right" data-bind="click: navigateToEvents">
-                    <i class="fa fa-plus"></i> Add new event
-                </button>
+                </div>                
+                <button type="button" class="btn btn-default btn-custom pull-right" data-bind="click: navigateToEvents">All events</button>
             </div>
         </div>
     </div>

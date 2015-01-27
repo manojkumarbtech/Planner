@@ -19,7 +19,7 @@
             return router.activate();
         },
         logout: function () {
-            app.showMessage('Do you really want to logout?', '', ['No', 'Yes'], true)
+            app.showMessage('Do you really want to sign out?', '', ['No', 'Yes'], true)
                .then(function (dialogResult) {
                    if (dialogResult == 'Yes') {                       
                        router.navigate('signin');

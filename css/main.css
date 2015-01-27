@@ -121,7 +121,7 @@
 
 /* custom */
 body {
-    background: url('bg.jpg') no-repeat center center fixed;
+    background: url('../img/bg.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -173,22 +173,17 @@ textarea {
 }
 
 .btn-custom {
-    color: #597B87;
-    border-color: #597B87;
-}
-
-.navbar-btn {
     color: #fff;
     border-color: #fff;
-    background-color: #BDC9C8;
+    background-color: rgba(89, 123, 135, 0.3);
 }
 
-.navbar-btn:hover,
-.navbar-btn:focus,
 .btn-custom:hover,
 .btn-custom:focus {    
     color: #fff;
-    background-color: rgba(89, 123, 135, 0.8);
+    font-weight: bold;
+    background-color: rgba(89, 123, 135, 1);
+    border-color: rgba(89, 123, 135, 1);
 }
 
 /* calendar - sidebar */
@@ -367,47 +362,46 @@ textarea {
 .btn-starred,
 .btn-starred:hover,
 .btn-starred:focus  {
-    color: #BEB79D;
-    border-color: #BEB79D;
+    color: rgba(204, 170, 102, 1);
+    border-color: rgba(204, 170, 102, 1);
 }
 
 .btn-starred:hover,
 .btn-starred:focus {    
     color: #fff;
-    background-color: rgba(204, 170, 102, 0.4);
+    background-color: rgba(204, 170, 102, 1);
 }
 
 .btn-edit,
 .btn-edit:hover,
 .btn-edit:focus  {
-    color: #597B87;
-    border-color: #597B87;
+    color: rgba(89, 123, 135, 1);
+    border-color: rgba(89, 123, 135, 1);
 }
 
 .btn-edit:hover,
 .btn-edit:focus {    
     color: #fff;
-    background-color: rgba(89, 123, 135, 0.8);
+    background-color: rgba(89, 123, 135, 1);
 }
 
 .btn-remove,
 .btn-remove:hover,
 .btn-remove:focus  {
-    color: #BC2326;
-    border-color: #BC2326;
+    color: rgba(188, 35, 38, 1);
+    border-color: rgba(188, 35, 38, 1);
 }
 
 .btn-remove:hover,
 .btn-remove:focus { 
     color: #fff;   
-    background-color: rgba(188, 35, 38, 0.8);
+    background-color: rgba(188, 35, 38, 1);
 }
 
 .task-checkbox {
     text-align: center;  
     padding-top: 10px;  
 }
-
 
 /* signin - signup */
 /* 404 */
@@ -417,22 +411,47 @@ textarea {
     font-size: 48px;
 }
 
-.signin-form, 
-.signup-form, 
-.not-found-page {
-    margin-top: 40px;
-    padding: 30px;
-    background-color: rgba(255,255,255,0.3);
+.application-title {
+    text-align: center;
+    background-color: rgba(89, 123, 135, 0.4);
+    color: #fff;
+    -webkit-text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
 }
 
-.signin-form-redirect {
-    margin-top: 30px;
-    text-align: center;
+.signin-form, 
+.signup-form, 
+.not-found-page {    
+    padding: 30px;
+    background-color: rgba(255,255,255,0.3);
 }
 
 .signin-form-header, 
 .signup-form-header {
     text-align: center;
+    color: rgba(89, 123, 135, 0.7);
+    -webkit-text-shadow: rgba(0, 0, 0, 0.2) 0 0 15px;
+    text-shadow: rgba(0, 0, 0, 0.2) 0 0 15px;
+}
+
+.signin-form-header h3, 
+.signup-form-header h3 {
+    margin-top: 0px;
+}
+
+.btn-redirect,
+.btn-redirect:hover,
+.btn-redirect:focus {
+    border: none;
+    background: none;
+    color: rgba(89, 123, 135, 0.7);
+    text-decoration: underline;
+    padding-left: 0;
+}
+
+.btn-redirect:hover,
+.btn-redirect:focus {
+    font-weight: bold;
 }
 
 /* home */
@@ -446,10 +465,20 @@ mark {
     border-radius: 2px; 
 }
 
+.no-tasks,
+.no-events {
+    text-align: center;
+}
+
+.no-tasks h4,
+.no-events h4 {
+    margin-bottom: 25px;
+}
+
 .tasksForToday, 
 .eventsForToday {
     text-align: center;
-    table-layout: fixed;
+    table-layout: fixed;     
 }
 
 .tasksForToday th, 
@@ -459,7 +488,7 @@ mark {
 
 .tasksForToday caption,
 .eventsForToday caption {
-    text-align: left;
+    text-align: center;
     margin-bottom: 10px;
 }
 

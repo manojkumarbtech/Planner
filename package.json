@@ -1,0 +1,29 @@
+{
+  "name": "Planner",
+  "version": "1.0.0",
+  "description": "SPA - Planner",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariagrigorieva/Planner"
+  },
+  "author": "Maria Grigorieva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariagrigorieva/Planner/issues"
+  },
+  "homepage": "https://github.com/mariagrigorieva/Planner",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-durandal": "^1.1.5",
+    "gulp-util": "^3.0.2",
+    "gulp-concat": "^2.4.3",
+    "gulp-cssmin": "^0.1.6"
+  },
+  "dependencies": {
+    "del": "^1.1.1"
+  }
+}

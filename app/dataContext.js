@@ -27,12 +27,13 @@
     }
 
     function addTask(data) {
-        var dfd = Q.defer();
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/classes/tasks/',
+            acl = {}
+        ;
 
-        var url = 'https://api.parse.com/1/classes/tasks/';
-
-        if (userContext.userId()) {
-            var acl = {};
+        if (userContext.userId()) {            
             acl[userContext.userId()] = {
                 'read': true,
                 'write': true
@@ -52,7 +53,8 @@
     }
     
     function mapTasks(tasks) {
-        for (var i = 0; i < tasks.length; i++) {
+        var i;
+        for (i = 0; i < tasks.length; i++) {
             tasks[i]['isStarred'] = ko.observable(tasks[i]['isStarred']);
             tasks[i]['isCompleted'] = ko.observable(tasks[i]['isCompleted']);
         }
@@ -86,9 +88,10 @@
     }
 
     function updateTask(task) {
-        var dfd = Q.defer();
-
-        var url = 'https://api.parse.com/1/classes/tasks/' + task.objectId;
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/classes/tasks/' + task.objectId
+        ;
 
         http.put(url, task, headers)
             .done(function () {
@@ -102,9 +105,10 @@
     }
 
     function removeTask(task) {
-        var dfd = Q.defer();
-
-        var url = 'https://api.parse.com/1/classes/tasks/' + task.objectId;
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/classes/tasks/' + task.objectId
+        ;
 
         http.remove(url, { "objectId": task.objectId }, headers)
             .done(function () {
@@ -117,15 +121,15 @@
         return dfd.promise;
     }
 
-    ///////// Events ////////////
+    // Events 
     function addEvent(data) {
         var 
             dfd = Q.defer(),
-            url = 'https://api.parse.com/1/classes/events/'
+            url = 'https://api.parse.com/1/classes/events/',
+            acl = {}
         ;
 
-        if (userContext.userId()) {
-            var acl = {};
+        if (userContext.userId()) {            
             acl[userContext.userId()] = {
                 'read': true,
                 'write': true
@@ -171,9 +175,10 @@
     }
 
     function updateEvent(event) {
-        var dfd = Q.defer();
-
-        var url = 'https://api.parse.com/1/classes/events/' + event.objectId;
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/classes/events/' + event.objectId
+        ;
 
         http.put(url, event, headers)
             .done(function () {
@@ -187,9 +192,10 @@
     }
 
     function removeEvent(event) {
-        var dfd = Q.defer();
-
-        var url = 'https://api.parse.com/1/classes/events/' + event.objectId;
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/classes/events/' + event.objectId
+        ;
 
         http.remove(url, { "objectId": event.objectId }, headers)
             .done(function () {
@@ -202,14 +208,15 @@
         return dfd.promise;
     }
 
-    ///////// Contacts ////////////
+    // Contacts
     function addContact(data) {
-        var dfd = Q.defer();
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/classes/contacts/',
+            acl = {}
+        ;
 
-        var url = 'https://api.parse.com/1/classes/contacts/';
-
-        if (userContext.userId()) {
-            var acl = {};
+        if (userContext.userId()) {            
             acl[userContext.userId()] = {
                 'read': true,
                 'write': true
@@ -255,9 +262,10 @@
     }
 
     function updateContact(contact) {
-        var dfd = Q.defer();
-
-        var url = 'https://api.parse.com/1/classes/contacts/' + contact.objectId;
+        var
+            dfd = Q.defer();
+            url = 'https://api.parse.com/1/classes/contacts/' + contact.objectId
+        ;
 
         http.put(url, contact, headers)
             .done(function () {
@@ -271,9 +279,10 @@
     }
 
     function removeContact(contact) {
-        var dfd = Q.defer();
-
-        var url = 'https://api.parse.com/1/classes/contacts/' + contact.objectId;
+        var
+            dfd = Q.defer(),
+            url = 'https://api.parse.com/1/classes/contacts/' + contact.objectId
+        ;
 
         http.remove(url, { "objectId": contact.objectId }, headers)
             .done(function () {

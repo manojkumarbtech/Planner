@@ -1,7 +1,13 @@
-﻿<div class="col-sm-4 col-sm-offset-4 signup-form">
+﻿<div class="col-sm-4 col-sm-offset-4 application-title">
+    <h2>
+        <i class="fa fa-pencil-square"></i> Planner
+    </h2> 
+</div>
+<div class="col-sm-4 col-sm-offset-4 signup-form">
     <div class="signup-form-header">
         <h3>New account</h3>
     </div>
+    <hr />
     <form role="form" data-bind="submit: submit">
         <div class="form-group">
             <label for="inputName">Username</label>
@@ -12,7 +18,7 @@
             <input type="password" class="form-control" id="inputPassword" placeholder="Password" data-bind="value: password" required>
         </div>        
         <hr />
-        <button type="submit" class="btn btn-default btn-custom navbar-btn pull-right">Create new account</button>
-        <button type="button" class="btn btn-default btn-custom navbar-btn" data-bind="click: signinRedirect">Sign in</button>
+        <button type="submit" class="btn btn-default btn-custom pull-right">Sign up</button>
+        <button type="button" class="btn btn-default btn-redirect" data-bind="click: signinRedirect">Already have an account?</button>
     </form>
 </div>

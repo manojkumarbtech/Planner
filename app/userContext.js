@@ -47,6 +47,7 @@
                 dfd.resolve();
             })
             .fail(function () {
+                alert('oops');
                 dfd.reject();
             });
 

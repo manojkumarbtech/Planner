@@ -7,7 +7,6 @@
         'Q': '../lib/q/q',
         'moment': '../lib/moment/moment.min',
         'jquery': '../lib/jquery/jquery-1.9.1.min',
-        'jquery-ui': '../lib/jquery-ui/jquery-ui-1.11.2.min',
         'knockout': '../lib/knockout/knockout-3.1.0',
         'bootstrap': '../lib/bootstrap/js/bootstrap.min',
         'fullcalendar': '../lib/fullcalendar/fullcalendar.min',
